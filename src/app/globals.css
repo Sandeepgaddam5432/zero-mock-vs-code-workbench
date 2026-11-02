@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+:root {
+  --bg-editor: #1e1e1e;
+  --bg-sidebar: #252526;
+  --bg-activity: #333333;
+  --bg-titlebar: #3c3c3c;
+  --bg-statusbar: #007acc;
+  --bg-tab-inactive: #2d2d2d;
+  --bg-tab-active: #1e1e1e;
+  --bg-panel: #1e1e1e;
+  --bg-input: #3c3c3c;
+  --bg-hover: #2a2d2e;
+  --bg-selected: #37373d;
+  --bg-widget: #252526;
+  --fg: #cccccc;
+  --fg-muted: #858585;
+  --fg-bright: #ffffff;
+  --fg-status: #ffffff;
+  --border: #3c3c3c;
+  --accent: #007acc;
+  --accent-fg: #ffffff;
+  --link: #3794ff;
+  --line-highlight: #264f78;
+}
+
+@theme inline {
+  --color-editor: var(--bg-editor);
+  --color-sidebar: var(--bg-sidebar);
+  --color-activity: var(--bg-activity);
+  --color-titlebar: var(--bg-titlebar);
+  --color-statusbar: var(--bg-statusbar);
+  --color-tab: var(--bg-tab-inactive);
+  --color-tabactive: var(--bg-tab-active);
+  --color-panel: var(--bg-panel);
+  --color-input: var(--bg-input);
+  --color-hover: var(--bg-hover);
+  --color-selected: var(--bg-selected);
+  --color-widget: var(--bg-widget);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-bright: var(--fg-bright);
+  --color-statusfg: var(--fg-status);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accentfg: var(--accent-fg);
+  --color-link: var(--link);
+  --font-mono: "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg-editor);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Ubuntu, "Droid Sans", sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--fg-muted) 40%, transparent) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--fg-muted) 35%, transparent);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--fg-muted) 60%, transparent);
+}
+
+.codicon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Sashes (react-resizable-panels handles) */
+.sash-v,
+.sash-h {
+  position: relative;
+  z-index: 20;
+  background: transparent;
+  flex: 0 0 auto;
+  transition: background-color 0.1s ease 0.1s;
+}
+.sash-v {
+  width: 4px;
+  margin: 0 -2px;
+  cursor: col-resize;
+}
+.sash-h {
+  height: 4px;
+  margin: -2px 0;
+  cursor: row-resize;
+}
+.sash-v[data-resize-handle-state="hover"],
+.sash-v[data-resize-handle-state="drag"],
+.sash-h[data-resize-handle-state="hover"],
+.sash-h[data-resize-handle-state="drag"] {
+  background: var(--accent);
+}
+
+/* Editor highlight for deep-linked lines (Monaco) */
+.deep-link-line {
+  background: var(--line-highlight);
+}
+.deep-link-line-gutter {
+  border-left: 3px solid var(--accent);
+}
+
+/* Shiki read-only viewer (mobile) */
+.shiki-viewer pre {
+  margin: 0;
+  padding: 8px 0;
+  background: transparent !important;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  counter-reset: ln;
+  min-width: max-content;
+}
+.shiki-viewer code {
+  display: block;
+}
+.shiki-viewer .line {
+  display: inline-block;
+  min-width: 100%;
+  padding-right: 12px;
+  counter-increment: ln;
+}
+.shiki-viewer .line::before {
+  content: counter(ln);
+  display: inline-block;
+  width: 3.2em;
+  margin-right: 1em;
+  text-align: right;
+  color: var(--fg-muted);
+  opacity: 0.7;
+  user-select: none;
+}
+.shiki-viewer .line.hl {
+  background: var(--line-highlight);
+}
+
+/* Markdown rendered inside the workbench */
+.markdown-body {
+  background: transparent !important;
+  color: var(--fg) !important;
+  padding: 24px 32px;
+  font-size: 14px;
+}
+.markdown-body img {
+  max-width: 100%;
+  background: transparent !important;
+}
+.markdown-body pre code {
+  font-family: var(--font-mono);
+}
+
+.chat-md p {
+  margin: 0 0 8px;
+}
+.chat-md ul,
+.chat-md ol {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  list-style: revert;
+}
+.chat-md a {
+  color: var(--link);
+  text-decoration: underline;
+}
+.chat-md code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: color-mix(in srgb, var(--fg-muted) 22%, transparent);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.chat-md h1,
+.chat-md h2,
+.chat-md h3 {
+  font-weight: 600;
+  margin: 8px 0 4px;
+  color: var(--fg-bright);
+}
+.chat-md blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 8px;
+  color: var(--fg-muted);
+  margin: 0 0 8px;
+}
+
+.xterm {
+  padding: 4px 0 0 12px;
+}
+.xterm-viewport {
+  background-color: transparent !important;
+}
+
+.mobile-safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.drawer-in {
+  animation: drawer-in 0.2s ease-out;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+
+@media print {
+  html,
+  body {
+    overflow: visible;
+    height: auto;
+  }
+}

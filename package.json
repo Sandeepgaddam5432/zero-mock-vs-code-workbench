@@ -1,0 +1,50 @@
+{
+  "name": "nextjs-postgresql-template",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "tsx scripts/sync-github.ts && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "build:static": "STATIC_EXPORT=1 tsx scripts/sync-github.ts && STATIC_EXPORT=1 next build",
+    "sync": "tsx scripts/sync-github.ts"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@vscode/codicons": "^0.0.46-24",
+    "@xterm/addon-canvas": "^0.7.0",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/addon-web-links": "^0.11.0",
+    "@xterm/xterm": "^5.5.0",
+    "dompurify": "^3.4.17",
+    "dotenv": "17.3.1",
+    "drizzle-orm": "0.45.2",
+    "github-markdown-css": "^5.9.0",
+    "idb-keyval": "^6.3.0",
+    "marked": "^18.1.2",
+    "minisearch": "^7.2.0",
+    "monaco-editor": "^0.52.2",
+    "next": "16.2.6",
+    "pg": "8.20.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-resizable-panels": "^2.1.7",
+    "shiki": "^4.5.0",
+    "tsx": "^4.23.15",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.17",
+    "@types/node": "22.19.15",
+    "@types/pg": "8.18.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "postcss": "8.5.8",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3"
+  }
+}
