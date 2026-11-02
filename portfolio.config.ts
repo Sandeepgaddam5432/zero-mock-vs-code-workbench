@@ -87,7 +87,36 @@ export const portfolioConfig: PortfolioConfig = {
   skills,
   experience,
   virtualFiles: {
-    "README.md": `# Sandeep Gaddam\n\nFull Stack Engineer.\nWelcome to my interactive VS Code workspace! Explore my open source repositories, test code in the terminal, or chat with the AI Copilot.`,
+    "README.md": `# Sandeep Gaddam
+
+**Full Stack Engineer & Open Source Contributor**
+
+I build performant web applications, developer tooling, and distributed systems. This portfolio is a real, interactive VS Code workbench: browse my GitHub repositories, open files, run terminal commands, and ask the Copilot about my work.
+
+## Start here
+
+- Press **Ctrl/Cmd + P** to quick-open any file.
+- Focus the terminal and type **help** to see every command.
+- Click any repository in the Explorer to read its real README.
+- Open **Recruiter View** for the short version.
+
+## Stack
+
+TypeScript · React · Next.js · Node.js · Go · PostgreSQL · Docker · GitHub Actions
+
+## Featured projects
+
+- [toolhub](https://github.com/Sandeepgaddam5432/toolhub) — privacy-first, client-side utility hub.
+- [autobatch-extension](https://github.com/Sandeepgaddam5432/autobatch-extension) — Chrome extension for batch AI prompts and media.
+- [claude-tg-bridge](https://github.com/Sandeepgaddam5432/claude-tg-bridge) — Claude Code CLI on Telegram.
+- [web-demos](https://github.com/Sandeepgaddam5432/web-demos) — white-label clinic, gym, and realty demos.
+
+## Elsewhere
+
+- GitHub: https://github.com/Sandeepgaddam5432
+
+> Tip: use the explorer to browse every repository, or use the Recruiter View button in the title bar for a concise summary.
+`,
     "skills.json": JSON.stringify(skills, null, 2),
     "experience.ts": experienceSource,
     "contact.env": `EMAIL="contact@example.com"\nGITHUB="https://github.com/${primary}"\nSTATUS="Open to Work"`,

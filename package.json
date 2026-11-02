@@ -1,6 +1,15 @@
 {
-  "name": "nextjs-postgresql-template",
+  "name": "zero-mock-vs-code-workbench",
   "private": true,
+  "description": "A zero-mock, fully client-side VS Code workbench portfolio built with Next.js, Monaco and xterm.js.",
+  "homepage": "https://sandeepgaddam5432.github.io/zero-mock-vs-code-workbench/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandeepgaddam5432/zero-mock-vs-code-workbench.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sandeepgaddam5432/zero-mock-vs-code-workbench/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "tsx scripts/sync-github.ts && next build",

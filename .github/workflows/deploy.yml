@@ -21,11 +21,14 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - uses: actions/configure-pages@v5
+        id: pages
       - run: npm ci --legacy-peer-deps
       - run: npm run build:static
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_PUBLIC_GITHUB_USERNAME: ${{ vars.PORTFOLIO_GITHUB_USERNAME }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
