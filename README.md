@@ -71,7 +71,7 @@ Useful entry points:
 
 ### GitHub browser
 
-- Every public repository is synced at build time and pinned to its latest commit SHA
+- Public repositories are synced at build time and pinned to their latest commit SHA (forks and archived projects excluded)
 - Real file trees, file contents, images and Markdown previews
 - Noise, lockfiles, binaries and files larger than 500 KB are filtered out
 - Content is served from `raw.githubusercontent.com` with a jsDelivr fallback and IndexedDB caching
@@ -137,7 +137,7 @@ next build (STATIC_EXPORT=1)
        out/  --->  GitHub Pages
 ```
 
-The application itself is entirely client-side. GitHub is contacted only during the build, when the sync script resolves repositories, commit SHAs, file trees and READMEs. The exported site contains all data and assets it needs.
+The application itself is entirely client-side. The GitHub API is contacted only during the build, when the sync script resolves repositories, commit SHAs, file trees and READMEs. The exported site contains all metadata and assets it needs; file contents are fetched on demand from GitHub raw content hosts and cached in IndexedDB.
 
 ## Quick start
 
